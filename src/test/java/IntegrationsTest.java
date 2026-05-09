@@ -18,7 +18,11 @@ public class IntegrationsTest  {
                         .when()
                         .get("https://fakestoreapi.com/products");
 
-        assertEquals(200, response.getStatusCode());
+        assertEquals(
+                200,
+                response.getStatusCode(),
+                "Expected 200 locally. GitHub Actions may return 403 due to bot protection."
+        );
     }
 
     // Validate product count
